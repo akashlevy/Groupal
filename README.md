@@ -25,7 +25,7 @@ You just need to do better. With Groupal.
 
 You log on to our website. You put in your ID and you're brought to a screen with a large orange "Groupal" in the middle and a search bar to find your class. Your fingers slip onto the black plastic of your keyboard and type in "M". "A". "T". "2". "0". "1". Instantly two study groups pop up in front of your eyes and your pupils dilate in anticapation. Which one is best for you? Hm. It looks like this one only has four other people. Why not take it? A few seconds after your index finger presses down on the mousepad, an alert sounds from your phone. It vibrates in your pocket and you take it out.
 
-You've just been added to a GroupMe. One made for your study group. You do belong, you just had to find where.
+You've just been added to a GroupMe, one of the most popular multi-platform messaging services out there. Made for *your* study group. You do belong, you just had to find where.
 
 ##Future Directions
 
