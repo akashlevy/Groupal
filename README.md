@@ -29,18 +29,18 @@ You've just been added to a GroupMe. One made for your study group. You do belon
 
 Groupal can take a life of its own. 
 
-There's no need to restrict it to simply finding GroupMe's. We want it to be able to automate events planning. With just a few clicks, a meeting time and place are set. It can send you an alert a day in advance, 10 minutes in advance, it doesn't matter. As often or as little as you want in order to remember your study time. 
+There's no need to restrict it to simply finding and joining group messages. We want it to be able to automate events planning. With just a few taps of your phone, a meeting time and place are set. It can send you an alert a day in advance, 10 minutes in advance, it doesn't matter. As often or as little as you want in order to remember your study time.
 
-Beyond that, we want better integration with GroupMe. Adding a GroupMe frame into the website itself that lets you chat within Groupal would be best.
+Beyond that, we want overall improved integration with GroupMe. Adding a GroupMe frame into the website itself that lets you chat within Groupal is one idea we had.
 
-For a more comprehensive list of future features, we plan to include:
-* Bots which can add or remove trolls or spammers from a group
-* Removing a user from a GroupMe removes them from that study group on Groupal
-* Creating a maximum number of groups one can join per course
-* Creating a maximum number of classes for each users (one can only have so many classes a semester after all)
-* Filtering by preceptors
-* Creating an official schedule for each user based on events in GroupMe
-* Integrating GroupMe events with a user's calendar (either on Google Calendar or their specific phone calendar)
-* Deleting a group when there are no more users
-* Groups for stronger and weaker students
+For a more comprehensive list of future features, we plan to:
 * Combining course names with catalog numbers in search bar
+* Add bots which can add or remove trolls or spammers from a group
+* Make removing a user from a GroupMe also remove them from that study group on Groupal
+* Make Groupal delete a group when there are no more users
+* Create a maximum number of groups per class
+* Create a maximum number of classes per user
+* Filtering by precepts, lectures
+* Filtering for self-identified stronger and weaker students (maybe)
+* Creating an official schedule for each study group on Groupal website based on GroupMe
+* Integrating GroupMe events with a user's calendar (either on Google Calendar or their specific phone calendar)
