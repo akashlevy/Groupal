@@ -20,7 +20,7 @@ You log on to our website. You put in your ID and you're brought to a screen wit
 
 You've just been added to a GroupMe. One made for your study group. You do belong, you just had to find where.
 
-##**Future Directions **
+##**Future Directions**
 
 Groupal can take a life of its own. 
 
