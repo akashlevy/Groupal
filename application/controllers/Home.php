@@ -91,6 +91,25 @@ class Home extends CI_Controller {
 		redirect(base_url());
 	}
 	
+	public function remove($id = 0) {
+		$groups = $this->user_model->get_groups_from_netid($this->session->userdata('netID'));
+		if (in_array($id, $groups)) {
+			$this->load->model('group_model');
+			
+			$api_key = 'a9da1ef0c2df0132778d5a2bf7f91165';
+			require('GroupMePHP/src/groupme.php');
+			$gm = new groupme($api_key);
+			
+			$this->group_model->removeuser_group($gm, $id, $this->session->userdata('id'));
+		}
+		redirect(base_url());
+	}
+	
+	public function remove_course($id) {
+		$this->user_model->remove_course($this->session->userdata('netID'), $id);
+		redirect(base_url());
+	}
+	
 	public function logout()
 	{
 		$this->session->sess_destroy();

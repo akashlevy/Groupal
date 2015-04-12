@@ -62,20 +62,10 @@ div#content {
 
 table.groups-table {
 	border-collapse: collapse;
-	width: 70vw;
-	margin-left: auto;
-	margin-right: auto;
-	border: 1px black solid;
-}
-
-table.groups-table thead {
-	background-color: #35bfff;
-	color: white;
-	font-weight: 100;
-	padding: 15px;
+	border: 0;
 }
 
 table.groups-table td {
-	border: 1px black solid;
-	padding: 15px;
+	border: 0;
+	padding: 5px;
 }

@@ -63,7 +63,7 @@ class Group_model extends CI_Model
 		$query = $this->db->get($this->group_table);
 		$row = $query->row(0);
 		$member_ids = $row->member_ids.';'.$user_id;
-		print_r($member_ids);
+		// print_r($member_ids);
 		$groupme_id = $row->groupme_id;
 		
 		// Get user data from database and process
@@ -84,6 +84,45 @@ class Group_model extends CI_Model
 		$this->db->update($this->group_table, array('member_ids' => $member_ids));
 		
 		// Add group to user.groups
+		$this->db->where('id', $user_id);
+		$this->db->update($this->user_table, array('groups' => $groups));
+	}
+
+    /*
+	 * Remove user from group
+	 * @param int $group_id
+	 * @param int $user_id
+	 * @return boolean success
+	 */
+	public function removeuser_group($gm, $group_id, $user_id)
+	{
+		// Get group data from database
+		$this->db->select('*');
+		$this->db->where('id', $group_id);
+		$query = $this->db->get($this->group_table);
+		$row = $query->row(0);
+		$member_ids = explode(';', $row->member_ids);
+		unset($member_ids[array_search($user_id, $member_ids)]);
+		$member_ids = implode(';', $member_ids);
+		// print_r($member_ids);
+		$groupme_id = $row->groupme_id;
+	
+		// Get user data from database and process
+		$this->db->select('*');
+		$this->db->where('id', $user_id);
+		$query = $this->db->get($this->user_table);
+		$row = $query->row(0);
+		$nickname = $row->name;
+		$phone_number = $row->phone;
+		$groups = explode(';', $row->groups);
+		unset($groups[array_search($group_id, $groups)]);
+		$groups = implode(';', $groups);
+	
+		// Remove user_id from group.member_ids
+		$this->db->where('id', $group_id);
+		$this->db->update($this->group_table, array('member_ids' => $member_ids));
+
+		// Remove group from user.groups
 		$this->db->where('id', $user_id);
 		$this->db->update($this->user_table, array('groups' => $groups));
 	}

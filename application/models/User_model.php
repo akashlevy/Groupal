@@ -108,5 +108,30 @@
 			$this->db->where('netID', $netID);
 			$this->db->update($this->user_table, $data);
 		}
+		
+		public function remove_course($netID, $courseID) {
+			$this->db->select('courses');
+			$this->db->where('netID', $netID);
+			$query = $this->db->get($this->user_table);
+			
+			$courses = $query->row(0)->courses;
+			
+			$courses = explode(';', $courses);
+			if(in_array($courseID, $courses)) {
+				for($i = 0; $i < count($courses); $i++) {
+					if($courses[$i] == $courseID) {
+						unset($courses[$i]);
+					}
+				}
+			}
+			$courses = implode(';', $courses);
+			
+			$data = array(
+				'courses' => $courses,
+			);
+			
+			$this->db->where('netID', $netID);
+			$this->db->update($this->user_table, $data);
+		}
 	}
 ?>
