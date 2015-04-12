@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Course extends CI_Controller {
 
 	private $data;
 
@@ -32,7 +32,7 @@ class Home extends CI_Controller {
 			redirect(base_url('/auth'));
 		}
    
-    	$this->data['title'] = "Groupal Home";
+    	$this->data['title'] = "Courses";
 		$this->data['name'] = $this->session->userdata('name');
 		$this->data['tags'] = $this->course_model->get_tags();
 	}
