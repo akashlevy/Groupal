@@ -38,12 +38,14 @@ Beyond that, we want overall improved integration with GroupMe. Adding a GroupMe
 For a more comprehensive list of future features, we plan to:
 * Combining course names with catalog numbers in search bar
 * Add bots which can add or remove trolls or spammers from a group
-* Detect changes to name of group, people within group, and adjust accordingly
+* Detect changes to name of group, people within group, and fix accordingly to match Groupal settings
+* Make removing a user from Groupal also remove them from that study group's GroupMe
 * Make removing a user from a GroupMe also remove them from that study group on Groupal
 * Make Groupal delete a group when there are no more users
 * Create a maximum number of groups per class
 * Create a maximum number of classes per user
-* Filtering by precepts, lectures
-* Filtering for self-identified stronger and weaker students (maybe)
-* Creating an official schedule for each study group on Groupal website based on GroupMe
-* Integrating GroupMe events with a user's calendar (either on Google Calendar or their specific phone calendar)
+* Filter by precepts, lectures
+* Create a schedule for each study group on Groupal website based on GroupMe events
+* Integrate GroupMe events with a user's calendar (either on Google Calendar or phone calendar)
+* Have an option to send user notifications when new study group is added to a subject the user follows
+* Add a dedicated profile page
