@@ -38,6 +38,7 @@ Beyond that, we want overall improved integration with GroupMe. Adding a GroupMe
 For a more comprehensive list of future features, we plan to:
 * Combining course names with catalog numbers in search bar
 * Add bots which can add or remove trolls or spammers from a group
+* Detect changes to name of group, people within group, and adjust accordingly
 * Make removing a user from a GroupMe also remove them from that study group on Groupal
 * Make Groupal delete a group when there are no more users
 * Create a maximum number of groups per class
