@@ -1,4 +1,6 @@
 #Groupal
+http://www.groupalapp.me
+
 Dependencies: php5, CodeIgniter, jquery, jqueryui, GroupMe API, GroupMePHP wrapper, CAS
 
 Credits: NameCheap for the web domain
