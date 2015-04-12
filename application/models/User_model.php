@@ -44,6 +44,28 @@
 			return $query->row(0);
 		}
 		
+		public function get_courses_from_netid($netID) {
+			$this->db->select('*');
+			$this->db->where('netID', $netID);
+			$query = $this->db->get($this->user_table);
+			
+			$courses = $query->row(0)->courses;
+			if($courses == NULL) {
+				$courses = array();
+			}
+			else {
+				$courses = explode(';', $courses);
+			}
+			
+			for($i = 0; $i < count($courses); $i++) {
+				if($courses[$i] == '') {
+					unset($courses[$i]);
+				}
+			}
+			
+			return $courses;
+		}
+		
 		public function get_groups_from_netid($netID) {
 			$this->db->select('*');
 			$this->db->where('netID', $netID);
@@ -57,7 +79,34 @@
 				$groups = explode(';', $groups);
 			}
 			
+			for($i = 0; $i < count($groups); $i++) {
+				if($groups[$i] == '') {
+					unset($groups[$i]);
+				}
+			}
+			
 			return $groups;
+		}
+		
+		public function add_course($netID, $courseID) {
+			$this->db->select('courses');
+			$this->db->where('netID', $netID);
+			$query = $this->db->get($this->user_table);
+			
+			$courses = $query->row(0)->courses;
+			
+			$courses = explode(';', $courses);
+			if(!in_array($courseID, $courses)) {
+				$courses[] = $courseID;
+			}
+			$courses = implode(';', $courses);
+			
+			$data = array(
+				'courses' => $courses,
+			);
+			
+			$this->db->where('netID', $netID);
+			$this->db->update($this->user_table, $data);
 		}
 	}
 ?>

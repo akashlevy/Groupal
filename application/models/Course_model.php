@@ -65,6 +65,7 @@
 			$tags = array();
 			foreach($query->result_array() as $tag) {
 				$tags[] = '{ label: "' . $tag['subject_code'] . ' ' . $tag['catalog_number'] . '", value: ' . $tag['id'] . ' }';
+				$tags[] = '{ label: "' . $tag['title'] . '", value: ' . $tag['id'] . ' }';
 			}
 			
 			return implode(', ', $tags);

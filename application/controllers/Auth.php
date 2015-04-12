@@ -101,6 +101,7 @@ class Auth extends CI_Controller {
 				case 'login':
 					$user = $this->user_model->get_member_from_netid($post_data['netID']);
 					$session_data = array(
+						'id'			=> $user->id,
 						'netID'  		=> $user->netID,
 						'name'			=> $user->name,
 						'logged_in' 	=> true
@@ -109,7 +110,9 @@ class Auth extends CI_Controller {
 				case 'register':
 					$phone = "(" . $post_data['phone1'] . ") " . $post_data['phone2'] . "-" . $post_data['phone3'];
 					$this->user_model->add_member($post_data['netID'], $post_data['name'], $phone);
+					$user = $this->user_model->get_member_from_netid($post_data['netID']);
 					$session_data = array(
+						'id'		=> $user->id,
 						'netID'  	=> $post_data['netID'],
 						'name'		=> $post_data['name'],
 						'logged_in' 	=> true

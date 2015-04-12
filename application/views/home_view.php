@@ -12,13 +12,14 @@
 				'id'          	=> 'autocomplete',
 			);
 			
-			echo form_label('Find a course: ', 'autocomplete');
+			echo form_label('Add a course: ', 'autocomplete');
 			echo form_input($data);
 			
 			$data = array(
-				'name'        => 'submit',
-				'id'          => 'submit',
-				'value'       => 'Go',
+				'name'        	=> 'submit',
+				'id'          	=> 'submit',
+				'value'       	=> 'Go',
+				'style'			=> 'color: black;',
 			);
 			
 			echo form_submit($data);
@@ -33,7 +34,7 @@
 	<h2>My Groups</h2>
     Welcome, <?php echo $name; ?>!
     <?php
-		if(empty($groups)) {
+		if(empty($courses)) {
 	?>
     <br />
     <h3>Join or start a group now!</h3>
