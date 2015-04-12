@@ -15,6 +15,25 @@ body {
 	color: red;
 }
 
+/* links */
+a:link {
+	color: #ff9c00;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #ff9c00;
+}
+
+a:active {
+	color: #ff9c00;
+}
+
+a:hover {
+	color: #ff9c00;
+	text-decoration: underline;
+}
+
 /* header */
 h1 {
 	font-weight: 300;
@@ -27,6 +46,7 @@ h1 {
 h2 {
 	font-weight: 100;
 	font-size: 40px;
+	margin-bottom: 0;
 }
 
 #search-bar {
@@ -58,6 +78,10 @@ div#content {
 	width: 80vw;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+table.auth-form tr {
+	margin-bottom: 3px;
 }
 
 table.groups-table {

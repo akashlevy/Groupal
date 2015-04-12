@@ -10,6 +10,14 @@
 			$this->load->database();
 		}
 		
+		public function is_admin($netID)
+		{
+			$this->db->select('admin');
+			$this->db->where('netID', $netID);
+			$query = $this->db->get($this->user_table);
+			
+			return $query->row(0)->admin;
+		}
 		
 		public function check_exists($netID)
 		{

@@ -2,6 +2,7 @@
 
 	class Course_model extends CI_Model
 	{
+		private $config_table = "config";
 		private $course_table = "courses";
 		private $group_table = "group";
 		private $user_table = "user";
@@ -57,6 +58,12 @@
 					$this->db->insert($this->course_table, $data);
 				}
 			}
+			
+			$data = array(
+				'value' => $term_id,
+			);
+			$this->db->where('field_name', 'current_term');
+			$this->db->update($this->config_table, $data);
 		}
 		
 		public function get_course_from_id($id) 
@@ -98,7 +105,15 @@
 		
 		public function get_tags() 
 		{
+			// get current term
+			$this->db->select('value');
+			$this->db->where('field_name', 'current_term');
+			$query = $this->db->get($this->config_table);
+			
+			$current = $query->row(0)->value;
+			
 			$this->db->select('*');
+			$this->db->where('term_id', $current);
 			$query = $this->db->get($this->course_table);
 			
 			$tags = array();

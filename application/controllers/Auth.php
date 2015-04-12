@@ -28,6 +28,9 @@ class Auth extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->model('user_model');
+		
+		$this->data['admin'] = 0;
+		$this->data['logged_in'] = 0;
    
     	$this->data['title'] = "Groupal Authentication";
 	}

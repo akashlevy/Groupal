@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo base_url("/js/jquery-ui.js"); ?>"></script>
     <script>
 		$(document).ready(function(){
-			$( "#main-accordion" ).accordion({heightStyle: 'panel'});
+			$( "#main-accordion" ).accordion({heightStyle: 'panel', collapsible: true});
 			
 			var availableTags = [
 				<?php echo $tags; ?>

@@ -32,6 +32,9 @@ class Home extends CI_Controller {
 			redirect(base_url('/auth'));
 		}
    
+   		$this->data['admin'] = $this->user_model->is_admin($this->session->userdata('netID'));
+		$this->data['logged_in'] = true;
+   
     	$this->data['title'] = "Groupal Home";
 		$this->data['name'] = $this->session->userdata('name');
 		$this->data['tags'] = $this->course_model->get_tags();
@@ -45,7 +48,6 @@ class Home extends CI_Controller {
 			$this->user_model->add_course($this->session->userdata('netID'), $post_data['course_id']);
 		}
 		
-		// $this->course_model->add_courses();
 		$courses = $this->user_model->get_courses_from_netid($this->session->userdata('netID'));
 		foreach($courses as $id => $course) {
 			$c_data = $this->course_model->get_course_from_id($courses[$id]);
@@ -107,6 +109,13 @@ class Home extends CI_Controller {
 	
 	public function remove_course($id) {
 		$this->user_model->remove_course($this->session->userdata('netID'), $id);
+		redirect(base_url());
+	}
+	
+	public function update() {
+		if($this->data['admin']) {
+			$this->course_model->add_courses();
+		}
 		redirect(base_url());
 	}
 	
