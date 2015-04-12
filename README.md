@@ -47,3 +47,4 @@ For a more comprehensive list of future features, we plan to:
 * Create a schedule for each study group on Groupal website based on GroupMe events
 * Integrate GroupMe events with a user's calendar (either on Google Calendar or phone calendar)
 * Have an option to send user notifications when new study group is added to a subject the user follows
+* Add a dedicated profile page
