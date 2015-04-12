@@ -3,7 +3,7 @@
 
 Before we ever even attended college, we were always bombarded by this idea: College was hard, but it was easy to find people in your classes to study with. When we came in, this idea was everpresent and looming, but weeks went by and we were no closer to finding a study group. To this day, studying can often be a solitary task of secluded problem solving and mind-numbing scanning of dozens if not hundreds of pages.
 
-#####**There had to be a better way. **
+#####**There had to be a better way.**
 
 Groupal came out of that ardent desire to do better, to be better. People working together just works. But if it's so hard to find someone to study with, what are you left to do? 
 
