@@ -1,4 +1,7 @@
 #Groupal
+Dependencies: php5, CodeIgniter, jquery, jqueryui, GroupMe API, GroupMePHP wrapper, CAS
+Credits: NameCheap for the web domain
+
 ####Introduction
 
 Before we ever even attended college, we were always bombarded by this idea: College was hard, but it was easy to find people in your classes to study with. When we came in, this idea was everpresent and looming, but weeks went by and we were no closer to finding a study group. To this day, studying can often be a solitary task of secluded problem solving and mind-numbing scanning of dozens if not hundreds of pages.
@@ -9,7 +12,8 @@ Groupal came out of that ardent desire to do better, to be better. People workin
 
 Right now, there is no help and no aid. But there can be. There will be. It's called Groupal, and it's here. 
 
-####**How Does Groupal Work?**
+####How Does Groupal Work?
+
 You're having a bad day. You just failed your first math quiz at Princeton. A 25/50 in Multivariable Calculus. You're good at this. How did you do so poorly? Yes, the average was a 30, but your entire self-esteem has been here. Are you really supposed to be here?
 
 Yes. Yes, you are.
@@ -20,7 +24,7 @@ You log on to our website. You put in your ID and you're brought to a screen wit
 
 You've just been added to a GroupMe. One made for your study group. You do belong, you just had to find where.
 
-##**Future Directions**
+##Future Directions
 
 Groupal can take a life of its own. 
 
@@ -38,13 +42,4 @@ For a more comprehensive list of future features, we plan to include:
 * Integrating GroupMe events with a user's calendar (either on Google Calendar or their specific phone calendar)
 * Deleting a group when there are no more users
 
-Dependencies: 
-* Php5
-* CodeIgniter 
-* Jquery
-* Jqueryui
-* GroupMe API 
-* GroupMePHP wrapper 
-* CAS
 
-Credits: NameCheap
