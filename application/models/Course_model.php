@@ -3,6 +3,8 @@
 	class Course_model extends CI_Model
 	{
 		private $course_table = "courses";
+		private $group_table = "group";
+		private $user_table = "user";
 		
 		public function __construct() 
 		{
@@ -55,6 +57,43 @@
 					$this->db->insert($this->course_table, $data);
 				}
 			}
+		}
+		
+		public function get_course_from_id($id) 
+		{
+			$this->db->select('*');
+			$this->db->where('id', $id);
+			$query = $this->db->get($this->course_table);
+			return $query->row(0);
+		}
+		
+		public function get_groups_for_course($id, $term)
+		{
+			$this->db->select('*');
+			$this->db->where(array('course_id' => $id, 'term_id' => $term));
+			$query = $this->db->get($this->group_table);
+			$groups = $query->result_array();
+			for($i = 0; $i < count($groups); $i++) {
+				$members = explode(';', $groups[$i]['member_ids']);
+				$member_arr = array();
+				$id_arr = array();
+				foreach($members as $member) {
+					if($member != 0) {
+						$this->db->select('id, name');
+						$this->db->where('id', $member);
+						$query = $this->db->get($this->user_table);
+						
+						$member_arr[] = $query->row(0)->name;
+						$id_arr[] = $query->row(0)->id;
+					}
+				}
+				
+				$member_string = implode(', ', $member_arr);
+				$groups[$i]['member_array'] = $id_arr;
+				$groups[$i]['member_string'] = $member_string;
+			}
+			
+			return $groups;
 		}
 		
 		public function get_tags() 

@@ -43,12 +43,64 @@
 		else {
 	?>
     <div id="main-accordion">
-        <h3>First</h3>
-        <div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
-        <h3>Second</h3>
-        <div>Phasellus mattis tincidunt nibh.</div>
-        <h3>Third</h3>
-        <div>Nam dui erat, auctor a, dignissim quis.</div>
+    	<?php
+			foreach($courses as $course) {
+		?>
+        <h3><?php echo $course['data']->subject_code . ' ' . $course['data']->catalog_number;?></h3>
+        <div><p><a href=""><img src="<?php echo base_url('/images/remove20.png'); ?>" />Remove this course</a><br />Term: <?php echo $course['data']->term; ?><br />Instructor(s): <?php echo $course['data']->instructors; ?></p>
+        
+        <p>
+        <h4>Groups</h4>
+        	<a href="<?php echo base_url('/home/create/' . $course['data']->id . '/' . $course['data']->term_id); ?>"><img src="<?php echo base_url('/images/add20.png'); ?>" />Create new group</a>
+            <?php
+				if(count($course['groups']) == 0) {
+			?>
+            No groups yet!
+            <?php		
+				}
+				else {
+			?>
+            <table class="groups-table">
+            	<thead>
+                	<tr>
+                        <th style="width: 10%;"></th>
+                    	<th>Group Members</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<?php
+						$i = 1;
+						foreach($course['groups'] as $group) {
+					?>
+                	<tr>
+                    	<?php
+						if(in_array($user_id, $group['member_array'])) {
+						?>
+                        <td style="text-align: center;"><a href="<?php echo base_url('/home/join/' . $group['id'] . '/' . $course['data']->id); ?>"><img src="<?php echo base_url('/images/remove20.png'); ?>" /></a></td>
+                        <?php
+						}
+						else {
+						?>
+                        <td style="text-align: center;"><a href="<?php echo base_url('/home/join/' . $group['id'] . '/' . $course['data']->id); ?>"><img src="<?php echo base_url('/images/add20.png'); ?>" /></a></td>
+                        <?php
+						}
+						?>
+                    	<td>Group <?php echo $i; ?>: <?php echo $group['member_string']; ?></td>
+                    </tr>
+                    <?php
+							$i++;
+						}
+					?>
+                </tbody>
+            </table>
+            <?php
+				}
+			?>
+        </p>
+        </div>
+        <?php
+			}
+		?>
     </div>
     <?php
 		}

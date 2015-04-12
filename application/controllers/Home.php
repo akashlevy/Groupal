@@ -46,34 +46,49 @@ class Home extends CI_Controller {
 		}
 		
 		// $this->course_model->add_courses();
-		// $user_status = $this->user_model->check_exists("dk7");
 		$courses = $this->user_model->get_courses_from_netid($this->session->userdata('netID'));
-		print_r($courses);
-		for($i = 0; $i < count($courses); $i++) {
-			// $courses[$i]['data'] = $this->course_model->get_course_from_id($courses[$i]);
+		foreach($courses as $id => $course) {
+			$c_data = $this->course_model->get_course_from_id($courses[$id]);
+			$courses[$id] = array('data' => $c_data, 'groups' => $this->course_model->get_groups_for_course($courses[$id], $c_data->term_id));
 		}
 		
 		$this->data['courses'] = $courses;
 		
 		$this->data['groups'] = $this->user_model->get_groups_from_netid($this->session->userdata('netID'));
+		$this->data['user_id'] = $this->session->userdata('id');
 		
 		$this->load->view('overall_header', $this->data);
 		$this->load->view('home_view', $this->data);
 		$this->load->view('overall_footer', $this->data);
 	}
 	
-	public function create() {
-		$this->load->model('group_model');
-		
-		$api_key = 'a9da1ef0c2df0132778d5a2bf7f91165';
-		require('GroupMePHP/src/groupme.php');
-		$gm = new groupme($api_key);
-		
-		$id = $this->group_model->create_group($gm, 4, 1162);
-		$this->group_model->adduser_group($gm, $id, $this->session->userdata('id'));
-		
-		$this->load->view('overall_header', $this->data);
-		$this->load->view('overall_footer', $this->data);
+	public function create($id = 0, $term = 0) {
+		$courses = $this->user_model->get_courses_from_netid($this->session->userdata('netID'));
+		if (in_array($id, $courses)) {
+			$this->load->model('group_model');
+			
+			$api_key = 'a9da1ef0c2df0132778d5a2bf7f91165';
+			require('GroupMePHP/src/groupme.php');
+			$gm = new groupme($api_key);
+			
+			$id = $this->group_model->create_group($gm, $id, $term);
+			$this->group_model->adduser_group($gm, $id, $this->session->userdata('id'));
+		}
+		redirect(base_url());
+	}
+	
+	public function join($id = 0, $course_id = 0) {
+		$courses = $this->user_model->get_courses_from_netid($this->session->userdata('netID'));
+		if (in_array($course_id, $courses)) {
+			$this->load->model('group_model');
+			
+			$api_key = 'a9da1ef0c2df0132778d5a2bf7f91165';
+			require('GroupMePHP/src/groupme.php');
+			$gm = new groupme($api_key);
+			
+			$this->group_model->adduser_group($gm, $id, $this->session->userdata('id'));
+		}
+		redirect(base_url());
 	}
 	
 	public function logout()

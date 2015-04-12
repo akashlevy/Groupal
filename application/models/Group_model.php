@@ -23,9 +23,10 @@ class Group_model extends CI_Model
 	{
 		// Get course data from database and process
 		$this->db->select('*');
-		$this->db->where(array('course_id' => $course_id, 'term_id' => $term_id));
+		$this->db->where(array('id' => $course_id, 'term_id' => $term_id));
 		$query = $this->db->get($this->course_table);
 		$course_data = $query->row(0);
+		print_r($course_data);
 		$subject_code = $course_data->subject_code;
 		$subject = $course_data->subject;
 		$catalog_number = $course_data->catalog_number;
@@ -62,6 +63,7 @@ class Group_model extends CI_Model
 		$query = $this->db->get($this->group_table);
 		$row = $query->row(0);
 		$member_ids = $row->member_ids.';'.$user_id;
+		print_r($member_ids);
 		$groupme_id = $row->groupme_id;
 		
 		// Get user data from database and process
@@ -75,7 +77,7 @@ class Group_model extends CI_Model
 		
 		// Add member to groupme
 		$response = $gm->members->add($groupme_id, array('members' => array(array('nickname' => $nickname, 'phone_number' => $phone_number))));
-		print_r($response); // REMOVE WHEN CHECK FOR SUCCESS (DECODE HTML RESPONSE?)
+		// print_r($response); // REMOVE WHEN CHECK FOR SUCCESS (DECODE HTML RESPONSE?)
 		
 		// Add user_id to group.member_ids
 		$this->db->where('id', $group_id);

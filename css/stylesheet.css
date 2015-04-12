@@ -17,9 +17,9 @@ body {
 
 /* header */
 h1 {
-	font-weight: 100;
+	font-weight: 300;
 	color: #ff9c00;
-	font-size: 90px;
+	font-size: 120px;
 	text-align: center;
 	margin: 0;
 }
@@ -58,4 +58,24 @@ div#content {
 	width: 80vw;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+table.groups-table {
+	border-collapse: collapse;
+	width: 70vw;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px black solid;
+}
+
+table.groups-table thead {
+	background-color: #35bfff;
+	color: white;
+	font-weight: 100;
+	padding: 15px;
+}
+
+table.groups-table td {
+	border: 1px black solid;
+	padding: 15px;
 }
